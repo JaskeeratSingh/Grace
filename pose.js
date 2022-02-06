@@ -3,8 +3,8 @@ let poseNet;
 const poseNett = ml5.poseNet();
 let poses = [];
 let skeletons = [];
-let x = 480;
-let y = 360;
+let x = 800;
+let y = 800;
 let locked = false;
 let overBox = false;
 let hasStarted = false;
@@ -67,6 +67,7 @@ function draw() {
             removeElements();
             background(0);
             video = createCapture(VIDEO);
+            resizeCanvas(480,360);
             video.size(width, height);
 
             // Create a new poseNet method with a single detection
@@ -144,7 +145,7 @@ function mouseReleased(){
 function startCheck(){
     removeElements();
     background(5, 0, 100);
-    var name = 'What type of dance/physio do you feel up for today?';
+    var name = 'What type of dance are you up for today?';
     textSize(35);
     fill(255);
     nameWidht = textWidth(name);
@@ -152,11 +153,11 @@ function startCheck(){
     textStyle(BOLD);
     text(name, (width - nameWidht)/2, height/2 - 60);
 
-    backBtn = createButton('Back');
-    thighBtn = createButton('Thighs');
-    neckBtn = createButton('Neck');
-    shoulderBtn = createButton('Shoulders');
-    calfBtn = createButton('Calf');
+    backBtn = createButton('Jazz');
+    thighBtn = createButton('K-Pop');
+    neckBtn = createButton('Hip-hop');
+    shoulderBtn = createButton('Classical');
+    calfBtn = createButton('Ballet');
 
     backBtn.position(width/2 - 170, height/2);
     backBtn.style('display: inline-block');
